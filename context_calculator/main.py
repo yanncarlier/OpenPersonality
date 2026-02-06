@@ -7,18 +7,17 @@ Main entry point for the personality engine.
 import sys
 from pathlib import Path
 from personality_engine import PersonalityEngine
-from cli_interface import CLIInterface
 
 
 def main():
     """Main entry point for the AI personality system."""
     print("=" * 60)
-    print("AI Personality System with Progressive Disclosure")
+    print("AI Personality System - Loading all contexts")
     print("=" * 60)
-    print()
+    # print()
     
     # Initialize the personality engine
-    config_dir = Path("../context_files")
+    config_dir = Path("context_files")
     
     if not config_dir.exists():
         print(f"Error: Configuration directory '{config_dir}' not found.")
@@ -34,11 +33,16 @@ def main():
         # Create personality engine
         engine = PersonalityEngine(config_dir)
         
-        # Initialize CLI interface
-        cli = CLIInterface(engine)
+        # Load all contexts
+        engine.load_all_contexts()
         
-        # Start the interactive session
-        cli.run()
+        # Display status
+        # print("\n" + "=" * 60)
+        # print("FINAL STATUS")
+        # print("=" * 60)
+        engine.print_status()
+        
+        print("\n✓ All contexts loaded and processed successfully.")
         
     except FileNotFoundError as e:
         print(f"Error: {e}")

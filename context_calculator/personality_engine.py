@@ -350,3 +350,33 @@ class PersonalityEngine:
         
         self.state = ConversationState()
         self._load_core_context()
+    
+    def load_all_contexts(self) -> None:
+        """Load all available contexts."""
+        for context_name in sorted(self.contexts.keys()):
+            self.load_context(context_name, force=True)
+    
+    def print_status(self) -> None:
+        """Print current engine status in a formatted way."""
+        from colorama import init, Fore, Style
+        init(autoreset=True)
+        
+        status = self.get_status()
+        
+        print(f"\n{Fore.CYAN}Conversation:{Style.RESET_ALL}")
+        print(f"  Turn count: {status['turn_count']}")
+        
+        print(f"\n{Fore.CYAN}Token Budget:{Style.RESET_ALL}")
+        print(f"  Used: {status['token_usage']}/{status['token_budget']}")
+        print(f"  Utilization: {status['budget_utilization']}")
+        
+        print(f"\n{Fore.CYAN}Loaded Contexts ({len(status['loaded_contexts'])} total):{Style.RESET_ALL}")
+        for ctx in sorted(status['loaded_contexts']):
+            details = status['context_details'][ctx]
+            print(f"  ✓ {ctx:<12} {details['tokens']:>5} tokens (priority: {details['priority']})")
+        
+        print(f"\n{Fore.CYAN}Context Summary:{Style.RESET_ALL}")
+        print(f"  Total contexts: {len(status['available_contexts'])}")
+        print(f"  Loaded contexts: {len(status['loaded_contexts'])}")
+        print(f"  Available contexts: {list(status['available_contexts'])}")
+        print()
