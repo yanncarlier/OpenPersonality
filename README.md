@@ -1,27 +1,27 @@
-# OpenPersonality
+# OSAgent
 
-An AI personality system with progressive context disclosure. This project implements a conversational AI assistant that intelligently manages context loading based on user interactions, emotional content detection, and token budget constraints.
+An AI OS Agent system with progressive context disclosure. This project implements a conversational AI assistant that intelligently manages context loading based on user interactions, emotional content detection, and token budget constraints.
 
 ## Overview
 
-OpenPersonality is designed to simulate a sophisticated AI assistant with:
+LocalPersonais designed to simulate a sophisticated AI assistant with:
 
-- **Progressive Disclosure**: Dynamically loads personality layers (identity, values, tools, emotional awareness) as needed during conversation
+- **Progressive Disclosure**: Dynamically loads OS Agent layers (identity, values, tools, emotional awareness) as needed during conversation
 - **Token Budget Management**: Intelligently manages context within a configurable token budget (default: 8000 tokens)
 - **Emotional Intelligence**: Detects emotional indicators in user messages and adapts responses accordingly
-- **Modular Architecture**: Separates concerns into personality engine, CLI interface, and configuration files
+- **Modular Architecture**: Separates concerns into OS Agent engine, CLI interface, and configuration files
 
 ## Features
 
 ### Core Components
 
-- **PersonalityEngine**: Manages context layers, token budgeting, and progressive disclosure
+- **OS AgentEngine**: Manages context layers, token budgeting, and progressive disclosure
 - **CLIInterface**: Interactive command-line interface with commands for status, context management, and configuration
-- **Configuration System**: Markdown-based personality files for identity, agent behavior, tools, soul/values, and emotional awareness
+- **Configuration System**: Markdown-based OS Agent files for identity, agent behavior, tools, soul/values, and emotional awareness
 
 ### Key Capabilities
 
-- **Context Analysis**: Parses user queries to identify relevant personality layers
+- **Context Analysis**: Parses user queries to identify relevant OS Agent layers
 - **Smart Loading**: Automatically loads contexts based on relevance scores and keyword matching
 - **Token Optimization**: Unloads lower-priority contexts when budget is exceeded
 - **Conversation State Tracking**: Maintains turn count, discussed topics, tools used, and emotional state
@@ -30,9 +30,9 @@ OpenPersonality is designed to simulate a sophisticated AI assistant with:
 ## Project Structure
 
 ```
-OpenPersonality/
+LocalOS Agent/
 ├── main.py                    # Main entry point
-├── personality_engine.py      # Core engine with progressive disclosure logic
+├── OS Agent_engine.py      # Core engine with progressive disclosure logic
 ├── cli_interface.py           # Interactive CLI interface
 ├── requirements.txt           # Python dependencies
 ├── config/
@@ -57,8 +57,8 @@ OpenPersonality/
 #### Option 1: Using `uv` (Recommended)
 
 ```bash
-gir clone git@github.com:yanncarlier/OpenPersonality.git
-cd OpenPersonality
+gir clone git@github.com:yanncarlier/LocalOS Agent.git
+cd LocalOS Agent
 
 # Initialize and activate virtual environment
 uv venv
@@ -73,7 +73,7 @@ uv pip install -r requirements.txt
 #### Option 2: Using `pip`
 
 ```bash
-cd OpenPersonality
+cd LocalOS Agent
 
 # Create virtual environment
 python3 -m venv .venv
@@ -127,7 +127,7 @@ AI: Processing with X relevant context(s)...
 
 ### Using the /load Command
 
-The `/load` command allows you to manually load personality contexts when you need specific capabilities or information, regardless of automatic context detection.
+The `/load` command allows you to manually load OS Agent contexts when you need specific capabilities or information, regardless of automatic context detection.
 
 #### Command Syntax
 
@@ -283,10 +283,10 @@ Context 'tools' loaded successfully.
 
 ```
 ============================================================
-AI Personality System with Progressive Disclosure
+AI OS Agent System with Progressive Disclosure
 ============================================================
 
-Welcome to the AI Personality System!
+Welcome to the AI OS Agent System!
 ============================================================
 
 Type your messages to interact with the AI.
@@ -332,7 +332,7 @@ Available Contexts:
 
 ## Configuration Files
 
-### IDENTITY.md      → Who the AI is (personality, empathy, behavior)
+### IDENTITY.md      → Who the AI is (OS Agent, empathy, behavior)
 Defines the core identity and name of the AI. Always loaded. Contains essential information about who the AI is.
 - **Priority**: 1 (Highest)
 - **Status**: Always active
@@ -382,7 +382,7 @@ The system maintains:
 - Turn count for conversation length
 - Topics discussed (populated by user queries)
 - Tools used during conversation
-- Loaded contexts (active personality layers)
+- Loaded contexts (active OS Agent layers)
 - User preferences (extensible)
 - Emotional state (updated by analysis)
 
@@ -397,24 +397,24 @@ See `requirements.txt` for the complete dependency list.
 ### Project Layout
 
 - `main.py`: Entry point that initializes the engine and CLI
-- `personality_engine.py`: Core logic for context management and progressive disclosure
+- `OS Agent_engine.py`: Core logic for context management and progressive disclosure
 - `cli_interface.py`: User interface and command handling
-- `config/`: Markdown-based personality configuration
+- `config/`: Markdown-based OS Agent configuration
 
 ### Extending the System
 
-To add new personality layers:
+To add new OS Agent layers:
 
 1. Create a new markdown file in `config/` (e.g., `CREATIVITY.md`)
-2. Update `personality_engine.py` `_load_personality_files()` method to include it
+2. Update `OS Agent_engine.py` `_load_OS Agent_files()` method to include it
 3. Assign appropriate priority and keywords
 4. Define behavior in the CLI if needed
 
-## Understanding the Personality Layers
+## Understanding the OS Agent Layers
 
 ### Why Progressive Disclosure?
 
-Loading all personality context at once would exceed token budgets in real deployments (with LLMs). Progressive disclosure:
+Loading all OS Agent context at once would exceed token budgets in real deployments (with LLMs). Progressive disclosure:
 - Loads context only when relevant
 - Prioritizes core identity (always loaded)
 - Optimizes token usage for efficiency
