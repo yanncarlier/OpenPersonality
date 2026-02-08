@@ -9,7 +9,7 @@ from typing import List, Dict
 API_URL = "http://localhost:8080/v1/chat/completions"
 CONTEXT_DIR = "context"
 
-class OSAgentOrchestrator:
+class OpenClawOrchestrator:
     """
     Implements progressive disclosure by scanning files in a specified directory 
     and only injecting relevant assertive context into the LLM prompt.
@@ -101,9 +101,9 @@ def chat_with_llama(user_query: str, context: str):
         return f"Error: {str(e)}"
 
 def run_interactive_session():
-    orchestrator = OSAgentOrchestrator(CONTEXT_DIR)
+    orchestrator = OpenClawOrchestrator(CONTEXT_DIR)
     
-    print("\n--- OSAgent CONTEXT ENGINE READY ---")
+    print("\n--- OPENCLAW CONTEXT ENGINE READY ---")
     print(f"Directory: {CONTEXT_DIR}/")
     print(f"Endpoint: {API_URL}")
     print("--------------------------------------\n")
