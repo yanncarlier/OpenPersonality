@@ -8,4 +8,51 @@ wheels/
 
 # Virtual environments
 .venv
+.venv/
+__pypackages__/
+.tox/
+.nox/
+
+# Logs and caches
 logs/
+*.log
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.uv/
+
+# Coverage
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Env/local config
+.env
+.env.*
+*.env
+.envrc
+.direnv/
+
+# Temp/backup files
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# Local DBs
+*.sqlite
+*.sqlite3
+*.db
+
+# IDE/editor
+.idea/
+.vscode/
+
+# OS junk
+.DS_Store
