@@ -1,0 +1,65 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: /OSAgent-chatgpt
+  schedule:
+    interval: weekly
+  groups:
+    grouped-security-updates:
+      applies-to: security-updates
+      patterns:
+      - '*'
+- package-ecosystem: pip
+  directory: /OSAgent-claude
+  schedule:
+    interval: weekly
+  groups:
+    grouped-security-updates:
+      applies-to: security-updates
+      patterns:
+      - '*'
+- package-ecosystem: pip
+  directory: /OSAgent-gemini
+  schedule:
+    interval: weekly
+  groups:
+    grouped-security-updates:
+      applies-to: security-updates
+      patterns:
+      - '*'
+- package-ecosystem: pip
+  directory: /OSAgent-grok
+  schedule:
+    interval: weekly
+  groups:
+    grouped-security-updates:
+      applies-to: security-updates
+      patterns:
+      - '*'
+- package-ecosystem: pip
+  directory: /OSAgent-mistral
+  schedule:
+    interval: weekly
+  groups:
+    grouped-security-updates:
+      applies-to: security-updates
+      patterns:
+      - '*'
+- package-ecosystem: pip
+  directory: /OSAgent-perplexity
+  schedule:
+    interval: weekly
+  groups:
+    grouped-security-updates:
+      applies-to: security-updates
+      patterns:
+      - '*'
+- package-ecosystem: pip
+  directory: /OSAgent-x
+  schedule:
+    interval: weekly
+  groups:
+    grouped-security-updates:
+      applies-to: security-updates
+      patterns:
+      - '*'
